@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>16 позиций из Китая | Ремонт квартиры 36 кв.м.</title>
+<title>15 позиций | Финальный бюджет ремонта 36 м²</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,6 +31,9 @@
   --red: #EF4444;
   --red-bg: rgba(239,68,68,0.1);
   --red-border: rgba(239,68,68,0.25);
+  --blue: #60A5FA;
+  --blue-bg: rgba(96,165,250,0.1);
+  --blue-border: rgba(96,165,250,0.25);
   --radius: 16px;
   --radius-sm: 10px;
   --radius-xs: 6px;
@@ -230,6 +233,7 @@ body {
 .tag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
 .tag-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
 .tag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+.tag-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
 
 .prices {
   display: grid; grid-template-columns: 1fr 1fr 1fr;
@@ -262,6 +266,16 @@ body {
 .alert-box h4 svg { width: 16px; height: 16px; }
 .alert-box p { color: var(--fg-muted); font-size: 0.84rem; margin-bottom: 4px; }
 
+.info-box {
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px; margin: 12px 0;
+}
+.info-box h4 { color: var(--blue); font-size: 0.88rem; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.info-box h4 svg { width: 16px; height: 16px; }
+.info-box p { color: var(--fg-muted); font-size: 0.84rem; margin-bottom: 4px; }
+
 /* === SUMMARY TABLE === */
 .summary-table {
   width: 100%; border-collapse: separate;
@@ -288,6 +302,7 @@ body {
 .summary-table tr:last-child td { border-bottom: none; }
 .summary-table tr:hover td { background: var(--surface-hover); }
 .summary-table tr.highlight td { background: rgba(94,106,210,0.04); }
+.summary-table tr.total-row td { background: var(--bg-elevated); font-weight: 700; font-size: 0.95rem; border-top: 2px solid var(--border-strong); }
 
 /* === SPLIT PANELS === */
 .split-panels {
@@ -338,6 +353,35 @@ body {
 }
 .budget-label { color: var(--fg-muted); font-size: 0.88rem; margin-top: 4px; }
 .budget-compare { color: var(--fg-dim); font-size: 0.82rem; margin-top: 12px; }
+
+/* === SHOPPING LIST === */
+.shop-list {
+  display: flex; flex-direction: column; gap: 8px;
+  margin: 16px 0;
+}
+.shop-item {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  transition: all 0.2s var(--ease);
+}
+.shop-item:hover { border-color: var(--border-strong); }
+.shop-item-left { display: flex; align-items: center; gap: 12px; }
+.shop-item-num {
+  width: 28px; height: 28px;
+  background: var(--surface);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; color: var(--fg-dim);
+  flex-shrink: 0;
+}
+.shop-item-name { font-size: 0.88rem; font-weight: 600; }
+.shop-item-where { font-size: 0.75rem; color: var(--fg-dim); }
+.shop-item-price { font-size: 1rem; font-weight: 700; white-space: nowrap; }
+.shop-item-price.china { color: var(--green); }
+.shop-item-price.russia { color: var(--orange); }
 
 /* === STEPS === */
 .steps { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
@@ -400,6 +444,24 @@ body {
 .source-link:hover { border-color: var(--accent); color: var(--accent-light); }
 .source-link svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--fg-dim); }
 
+/* === ANSWER BOX (for FAQ) === */
+.answer-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-glow);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+.answer-box::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+}
+.answer-box h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: var(--accent-light); }
+.answer-box p { color: var(--fg-muted); font-size: 0.88rem; margin-bottom: 6px; }
+.answer-box strong { color: var(--fg); }
+
 /* === FOOTER === */
 .footer {
   text-align: center; padding: 48px 24px;
@@ -436,6 +498,7 @@ body {
   .kpi-val { font-size: 1.4rem; }
   .item-top { flex-direction: column; }
   .nav-inner { gap: 4px; }
+  .shop-item { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
 </style>
 </head>
@@ -445,9 +508,10 @@ body {
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a class="nav-link active" href="#summary">Итого</a>
-    <a class="nav-link" href="#items">16 позиций</a>
+    <a class="nav-link" href="#budget">Бюджет</a>
+    <a class="nav-link" href="#faq">FAQ</a>
+    <a class="nav-link" href="#items">15 позиций</a>
     <a class="nav-link" href="#table">Таблица</a>
-    <a class="nav-link" href="#logistics">Логистика</a>
     <a class="nav-link" href="#plan">План</a>
     <a class="nav-link" href="#risks">Риски</a>
     <a class="nav-link" href="#sources">Источники</a>
@@ -458,10 +522,10 @@ body {
 <header class="hero">
   <div class="hero-badge">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-    Deep Research v2 &middot; 20 марта 2026
+    Финальный бюджет &middot; 20 марта 2026
   </div>
-  <h1>16 позиций из Китая<br>для квартиры 36 кв.м.</h1>
-  <p class="hero-sub">Цены, логистика, риски и рекомендации. Какие товары выгодно везти из Китая, а какие проще купить в России.</p>
+  <h1>15 позиций под ключ<br>для квартиры 36 м²</h1>
+  <p class="hero-sub">Конкретный список: что берём из Китая, что в России, сколько стоит под ключ и пошаговый план действий.</p>
 </header>
 
 <div class="container">
@@ -470,27 +534,191 @@ body {
 <section id="summary" class="section">
   <div class="kpi-strip">
     <div class="kpi">
-      <div class="kpi-val">6 / 16</div>
-      <div class="kpi-label">выгодно везти из Китая</div>
+      <div class="kpi-val">~185 т.р.</div>
+      <div class="kpi-label">бюджет под ключ</div>
     </div>
     <div class="kpi">
-      <div class="kpi-val">55-130 т.р.</div>
-      <div class="kpi-label">потенциальная экономия</div>
+      <div class="kpi-val">8 из Китая</div>
+      <div class="kpi-label">позиций через AliExpress</div>
     </div>
     <div class="kpi">
-      <div class="kpi-val">~150 т.р.</div>
-      <div class="kpi-label">стоимость доставки</div>
+      <div class="kpi-val">7 в России</div>
+      <div class="kpi-label">OZON / DNS / Леруа</div>
     </div>
     <div class="kpi">
-      <div class="kpi-val">20-28 дн.</div>
-      <div class="kpi-label">срок ж/д карго</div>
+      <div class="kpi-val">~50 т.р.</div>
+      <div class="kpi-label">экономия vs всё в РФ</div>
     </div>
   </div>
 
   <div class="verdict">
-    <h3>Главный вывод</h3>
-    <p>Из 16 позиций <strong>6 реально выгодно везти из Китая</strong>: механизм кровати-трансформера, измельчитель, микроволновку, вытяжку, робот-пылесос и люстру. Остальные 10 позиций проще и безопаснее купить в России, где те же китайские товары уже продаются с минимальной наценкой.</p>
-    <p style="margin-top:8px"><strong>Холодильник категорически не везти</strong> (фреон = конфискация на таможне). Стулья, стол, гардеробная &mdash; тяжёлые, доставка съедает выгоду.</p>
+    <h3>Твой план</h3>
+    <p><strong>8 позиций из Китая</strong> (AliExpress, бесплатная доставка): механизм кровати, раковина кухня, робот-пылесос Roborock, измельчитель, плита, вытяжка Fotile, люстра LED, гардеробная.</p>
+    <p style="margin-top:6px"><strong>7 позиций в России</strong> (OZON, DNS, Леруа): раковина туалет, духовка, холодильник, диванчик балкон, стол балкон, стулья 3 шт., стол круглый раздвижной.</p>
+    <p style="margin-top:6px;color:var(--fg-dim)">Микроволновка убрана из списка по твоему решению.</p>
+  </div>
+</section>
+
+<!-- BUDGET / SHOPPING LIST -->
+<section id="budget" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    Финальный список покупок
+  </div>
+
+  <h3 style="color:var(--green); font-size:0.95rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    Из Китая (AliExpress)
+  </h3>
+  <div class="shop-list">
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">1</div>
+        <div><div class="shop-item-name">Механизм кровати-трансформера</div><div class="shop-item-where">AliExpress + короб на заказ в РФ</div></div>
+      </div>
+      <div class="shop-item-price china">~32 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">2</div>
+        <div><div class="shop-item-name">Раковина кухня (кварц/камень)</div><div class="shop-item-where">AliExpress &middot; не нерж, средняя</div></div>
+      </div>
+      <div class="shop-item-price china">~5 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">3</div>
+        <div><div class="shop-item-name">Робот-пылесос Roborock</div><div class="shop-item-where">AliExpress &middot; без подключения к водопроводу</div></div>
+      </div>
+      <div class="shop-item-price china">~25 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">4</div>
+        <div><div class="shop-item-name">Измельчитель (диспоузер)</div><div class="shop-item-where">AliExpress &middot; средний сегмент</div></div>
+      </div>
+      <div class="shop-item-price china">~7 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">5</div>
+        <div><div class="shop-item-name">Плита 2-конфорочная</div><div class="shop-item-where">AliExpress &middot; индукция, средняя</div></div>
+      </div>
+      <div class="shop-item-price china">~7 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">6</div>
+        <div><div class="shop-item-name">Вытяжка Fotile</div><div class="shop-item-where">AliExpress &middot; средняя модель</div></div>
+      </div>
+      <div class="shop-item-price china">~20 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">7</div>
+        <div><div class="shop-item-name">Люстра LED с пультом</div><div class="shop-item-where">AliExpress &middot; 80-100 Вт, средняя</div></div>
+      </div>
+      <div class="shop-item-price china">~6 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">8</div>
+        <div><div class="shop-item-name">Гардеробная металл (стеллаж)</div><div class="shop-item-where">AliExpress &middot; самый дешёвый</div></div>
+      </div>
+      <div class="shop-item-price china">~4 000 ₽</div>
+    </div>
+  </div>
+  <div style="text-align:right; font-weight:700; color:var(--green); font-size:1rem; margin:8px 0 32px;">
+    Итого Китай: ~106 000 ₽
+  </div>
+
+  <h3 style="color:var(--orange); font-size:0.95rem; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    В России (OZON / DNS / Леруа)
+  </h3>
+  <div class="shop-list">
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">9</div>
+        <div><div class="shop-item-name">Раковина туалет (над стиралкой)</div><div class="shop-item-where">OZON / Леруа &middot; средняя</div></div>
+      </div>
+      <div class="shop-item-price russia">~8 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">10</div>
+        <div><div class="shop-item-name">Духовка встраиваемая</div><div class="shop-item-where">DNS / М.Видео &middot; средняя/бюджет</div></div>
+      </div>
+      <div class="shop-item-price russia">~18 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">11</div>
+        <div><div class="shop-item-name">Холодильник встроенный</div><div class="shop-item-where">DNS / М.Видео &middot; средний</div></div>
+      </div>
+      <div class="shop-item-price russia">~35 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">12</div>
+        <div><div class="shop-item-name">Диванчик на балкон</div><div class="shop-item-where">OZON / WB &middot; дешёвый</div></div>
+      </div>
+      <div class="shop-item-price russia">~6 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">13</div>
+        <div><div class="shop-item-name">Стол на балкон</div><div class="shop-item-where">OZON &middot; средний</div></div>
+      </div>
+      <div class="shop-item-price russia">~5 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">14</div>
+        <div><div class="shop-item-name">Стулья обеденные 3 шт.</div><div class="shop-item-where">OZON / WB &middot; дефолтные ~3 300/шт</div></div>
+      </div>
+      <div class="shop-item-price russia">~10 000 ₽</div>
+    </div>
+    <div class="shop-item">
+      <div class="shop-item-left">
+        <div class="shop-item-num">15</div>
+        <div><div class="shop-item-name">Стол круглый раздвижной</div><div class="shop-item-where">OZON / Леруа &middot; 80-100 см</div></div>
+      </div>
+      <div class="shop-item-price russia">~16 000 ₽</div>
+    </div>
+  </div>
+  <div style="text-align:right; font-weight:700; color:var(--orange); font-size:1rem; margin:8px 0 24px;">
+    Итого Россия: ~98 000 ₽
+  </div>
+
+  <div class="budget-box">
+    <div class="budget-val">~204 000 ₽</div>
+    <div class="budget-label">Общий бюджет на все 15 позиций под ключ</div>
+    <div class="budget-compare">Если всё купить в России: ~255 000 ₽ &middot; <strong style="color:var(--green)">Экономия: ~51 000 ₽</strong></div>
+  </div>
+
+  <div class="info-box">
+    <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>Про гардеробную: честный совет</h4>
+    <p>Исследование показало, что на OZON/WB те же китайские металлические стеллажи стоят <strong>4 500-8 000 ₽</strong> с бесплатной доставкой. На AliExpress &mdash; <strong>3 000-6 000 ₽</strong>, но доставка тяжёлого металла может стоить 1-2 т.р. Разница в итоге <strong>0-1 500 ₽</strong>. Если хочешь сэкономить максимум &mdash; бери на AliExpress. Если не хочешь ждать 3 недели &mdash; бери на OZON.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3m.08 4h.01"/></svg>
+    Частые вопросы
+  </div>
+
+  <div class="answer-box">
+    <h4>Не выйдет ли дороже механизм из Китая + короб на заказ?</h4>
+    <p><strong>Нет, наоборот &mdash; это самый выгодный вариант.</strong></p>
+    <p>Механизм из Китая (газлифты + рама + ортопедическое основание): <strong>10 000-15 000 ₽</strong> на AliExpress</p>
+    <p>Короб из ЛДСП/МДФ на заказ у мебельщика в РФ: <strong>15 000-25 000 ₽</strong></p>
+    <p>Матрас (РФ, ортопедический): <strong>8 000-12 000 ₽</strong></p>
+    <p style="margin-top:8px"><strong>Итого: 33 000-52 000 ₽</strong> &mdash; это полностью готовая кровать-трансформер.</p>
+    <p style="margin-top:8px">Готовая кровать-трансформер в России: <strong>70 000-150 000 ₽</strong>. Экономия: <strong>50-70%</strong>.</p>
+    <p style="margin-top:8px;color:var(--fg-dim)">Плюс: короб делает тот же мастер, что и фасады кухни &mdash; идеальная стыковка. Механизмы (Murphy bed hardware) &mdash; стандартные, любой мебельщик знает как их ставить. На Авито/Профи.ру десятки таких мастеров.</p>
   </div>
 </section>
 
@@ -502,10 +730,9 @@ body {
   </div>
 
   <div class="filters">
-    <button class="filter-btn active" data-filter="all" aria-pressed="true">Все (16)</button>
-    <button class="filter-btn" data-filter="china" aria-pressed="false">Везти из Китая (6)</button>
-    <button class="filter-btn" data-filter="maybe" aria-pressed="false">Условно (3)</button>
-    <button class="filter-btn" data-filter="russia" aria-pressed="false">Купить в России (7)</button>
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">Все (15)</button>
+    <button class="filter-btn" data-filter="china" aria-pressed="false">Из Китая (8)</button>
+    <button class="filter-btn" data-filter="russia" aria-pressed="false">В России (7)</button>
   </div>
 
   <div class="items-grid">
@@ -516,18 +743,18 @@ body {
         <div class="item-num">01</div>
         <div class="item-title-wrap">
           <div class="item-title">Кровать-трансформер</div>
-          <div class="item-subtitle">Механизм газлифт + рамка + ортопед. основание</div>
+          <div class="item-subtitle">Механизм из Китая + короб на заказ в РФ &middot; среднее качество</div>
         </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай + РФ</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">12-40 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">87-250 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
+        <div class="price-cell"><div class="price-cell-label">Механизм (Ali)</div><div class="price-cell-val china">12 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Короб (РФ)</div><div class="price-cell-val russia">20 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Готовая в РФ</div><div class="price-cell-val" style="color:var(--fg-dim)">90-150 т.р.</div></div>
       </div>
       <div class="item-body">
-        <p>Из Китая везут только механизм (25-50 кг). Корпус из МДФ/ДСП делаешь на заказ в РФ &mdash; идеальная комбинация с твоими российскими фасадами.</p>
-        <p><strong>Бренды:</strong> HAFELE, Murphy Wall Bed Hardware, безымянные с 1688 (от $120). <strong>Доставка:</strong> $40-100.</p>
+        <p><strong>Итого ~32 000 ₽</strong> (без матраса). Экономия 50-70% по сравнению с готовой. Механизм 25-50 кг, доставка Ali бесплатная или $40-100.</p>
+        <p><strong>Бренды:</strong> HAFELE, Murphy Wall Bed Hardware, безымянные с 1688 (от $120). Корпус делает тот же мебельщик, что и фасады кухни.</p>
       </div>
     </div>
 
@@ -537,39 +764,39 @@ body {
         <div class="item-num">02</div>
         <div class="item-title-wrap">
           <div class="item-title">Раковина в туалет</div>
-          <div class="item-subtitle">Настенная или на тумбу, 40-50 см</div>
+          <div class="item-subtitle">Над стиральной машиной &middot; среднее качество</div>
         </div>
         <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">0.8-6 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">1-8 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-30%</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON/Леруа</div><div class="price-cell-val russia">6-12 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~8 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Почему РФ</div><div class="price-cell-val" style="color:var(--fg-dim);font-size:0.8rem">хрупкая + спец. размер</div></div>
       </div>
       <div class="item-body">
-        <p>Разница минимальна. Хрупкий товар, риск боя при транспортировке. Экономия 200-1 000 руб. не стоит головной боли.</p>
-        <p><strong>Где купить:</strong> Леруа Мерлен, OZON. <strong>Бренды:</strong> Cersanit, Santek, Lemark.</p>
+        <p>Раковина-кувшинка (над стиралкой) &mdash; специфический размер, важна точная стыковка со стиральной машиной. Хрупкий товар &mdash; риск боя при доставке из Китая.</p>
+        <p><strong>Бренды:</strong> Santek, Cersanit, Altasan. На OZON от 4 000 ₽, средние модели 6-10 т.р.</p>
       </div>
     </div>
 
     <!-- 3 -->
-    <div class="item" data-type="maybe" style="animation-delay:0.15s">
+    <div class="item" data-type="china" style="animation-delay:0.15s">
       <div class="item-top">
         <div class="item-num">03</div>
         <div class="item-title-wrap">
           <div class="item-title">Раковина на кухню</div>
-          <div class="item-subtitle">Врезная, нержавейка или камень</div>
+          <div class="item-subtitle">Кварц/камень, не нержавейка &middot; среднее качество</div>
         </div>
-        <span class="tag tag-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Условно</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">3.5-18 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">4-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">3 500-7 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">7-15 000 ₽</div></div>
         <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-50%</div></div>
       </div>
       <div class="item-body">
-        <p>Выгодно только на среднем/хорошем сегменте (гранит, кварц). Бюджетная нержавейка &mdash; те же цены в РФ.</p>
-        <p><strong>Китай:</strong> JOMOO, Oulin. <strong>Россия:</strong> Mixline, Zorg, Paulmark.</p>
+        <p>Кварцевые/гранитные раковины из Китая значительно дешевле. На Ali средний сегмент JOMOO/Oulin за 4-6 т.р. &mdash; аналог Paulmark/Zorg за 8-14 т.р. в РФ.</p>
+        <p><strong>Вес:</strong> 8-12 кг, доставка Ali бесплатная. <strong>Важно:</strong> проверь совместимость с измельчителем (диаметр слива 90 мм).</p>
       </div>
     </div>
 
@@ -578,19 +805,19 @@ body {
       <div class="item-top">
         <div class="item-num">04</div>
         <div class="item-title-wrap">
-          <div class="item-title">Робот-пылесос с базой</div>
-          <div class="item-subtitle">С бочком для воды, самоочистка</div>
+          <div class="item-title">Робот-пылесос Roborock</div>
+          <div class="item-subtitle">Без подключения к водопроводу, баки</div>
         </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай / Ali</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">28-110 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">38-140 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">10-30%</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">~25 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">35-45 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">~10-15 т.р.</div></div>
       </div>
       <div class="item-body">
-        <p>На топовых моделях экономия 15-30 т.р. На средних &mdash; цены сопоставимы. Китайская версия может не поддерживать русский язык.</p>
-        <p><strong>Бренды:</strong> Dreame, Roborock. Покупать на AliExpress в период распродаж (11.11).</p>
+        <p><strong>Roborock Q Revo / S8</strong> на AliExpress за 25 000 ₽ &mdash; тот же робот, что в РФ за 35-45 т.р. Базовая станция с баками для воды, без подключения к водопроводу &mdash; просто менял баки.</p>
+        <p><strong>Нюанс:</strong> китайская версия может не поддерживать русский язык в приложении. Ищи Global-версию.</p>
       </div>
     </div>
 
@@ -600,18 +827,18 @@ body {
         <div class="item-num">05</div>
         <div class="item-title-wrap">
           <div class="item-title">Измельчитель (диспоузер)</div>
-          <div class="item-subtitle">Для кухонной раковины</div>
+          <div class="item-subtitle">Для кухонной раковины &middot; средний</div>
         </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">4.2-13 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">9-42 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">5-8 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">12-25 000 ₽</div></div>
         <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
       </div>
       <div class="item-body">
-        <p>Одна из самых выгодных позиций. Qcooker (Xiaomi) за 12 т.р. &mdash; аналог InSinkErator за 25-31 т.р. Вес 3-6 кг, доставка $8-20.</p>
-        <p><strong>Бренды:</strong> Qcooker (Xiaomi), JIQI, ITOP. Проверь диаметр канализации (40 мм).</p>
+        <p>Одна из самых выгодных позиций. Qcooker (Xiaomi) за 7 000 ₽ &mdash; аналог InSinkErator за 20 000+ в РФ. Вес 3-6 кг, доставка бесплатная.</p>
+        <p><strong>Важно:</strong> проверь диаметр канализации (стандарт 40 мм). Мощность от 370 Вт для средних моделей.</p>
       </div>
     </div>
 
@@ -621,39 +848,39 @@ body {
         <div class="item-num">06</div>
         <div class="item-title-wrap">
           <div class="item-title">Духовка встраиваемая</div>
-          <div class="item-subtitle">60 см, электрическая</div>
+          <div class="item-subtitle">60 см, электрическая &middot; средняя/бюджетная</div>
         </div>
         <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">15-25 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">15-40 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-35%</div></div>
+        <div class="price-cell"><div class="price-cell-label">DNS/М.Видео</div><div class="price-cell-val russia">15-22 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~18 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Почему РФ</div><div class="price-cell-val" style="color:var(--fg-dim);font-size:0.8rem">тяжёлая + стекло</div></div>
       </div>
       <div class="item-body">
-        <p>Тяжёлый груз (25-35 кг), стеклянная дверца. Доставка $60-120 съедает выгоду. Midea в DNS стоит столько же.</p>
-        <p><strong>Где купить:</strong> DNS, М.Видео. <strong>Бренды:</strong> Midea (от 17 т.р.), Weissgauff, DEXP.</p>
+        <p>Тяжёлый груз (25-35 кг), стеклянная дверца. Доставка из Китая $60-120 съедает всю разницу. Midea в DNS стоит от 17 т.р. &mdash; те же китайские фабрики.</p>
+        <p><strong>Бренды:</strong> Midea (от 17 т.р.), Weissgauff, DEXP. Средняя/бюджетная: 16-20 т.р.</p>
       </div>
     </div>
 
     <!-- 7 -->
-    <div class="item" data-type="maybe" style="animation-delay:0.35s">
+    <div class="item" data-type="china" style="animation-delay:0.35s">
       <div class="item-top">
         <div class="item-num">07</div>
         <div class="item-title-wrap">
-          <div class="item-title">Плита двухконфорочная</div>
-          <div class="item-subtitle">Варочная панель, индукция</div>
+          <div class="item-title">Плита 2-конфорочная</div>
+          <div class="item-subtitle">Варочная панель, индукция &middot; средняя</div>
         </div>
-        <span class="tag tag-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Условно</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">5-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">5-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">5-9 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">8-15 000 ₽</div></div>
         <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">20-40%</div></div>
       </div>
       <div class="item-body">
-        <p>Лёгкая (5-8 кг), компактная. Выгода на встраиваемых безимпульсных моделях. Бюджетные настольные &mdash; в РФ от 2 400 руб.</p>
-        <p><strong>Совместимость:</strong> 220В, тот же стандарт. Проверь подключение (однофазное).</p>
+        <p>Лёгкая (5-8 кг), компактная. Индукционные встраиваемые панели на Ali от 5 000 ₽ среднего качества. Доставка бесплатная.</p>
+        <p><strong>Совместимость:</strong> 220В, тот же стандарт. Проверь однофазное подключение. <strong>Бренды:</strong> Midea, Xiaomi, безымянные OEM.</p>
       </div>
     </div>
 
@@ -663,42 +890,42 @@ body {
         <div class="item-num" style="border-color:var(--red-border); color:var(--red);">08</div>
         <div class="item-title-wrap">
           <div class="item-title">Холодильник встроенный</div>
-          <div class="item-subtitle">Однокамерный или двухкамерный</div>
+          <div class="item-subtitle">Однокамерный или двухкамерный &middot; средний</div>
         </div>
-        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Не везти!</span>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия!</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val" style="color:var(--fg-dim)">нет смысла</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">25-55 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val danger">отрицательная</div></div>
+        <div class="price-cell"><div class="price-cell-label">DNS/М.Видео</div><div class="price-cell-val russia">25-45 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~35 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Из Китая</div><div class="price-cell-val danger">НЕЛЬЗЯ</div></div>
       </div>
       <div class="alert-box">
         <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4m0 4h.01"/></svg>Критический риск: фреон</h4>
         <p>С осени 2024 Минприроды ввело лицензионные требования на ввоз техники с хладагентами. Лицензия стоит <strong>~200 000 руб.</strong>, оформляется только на юрлицо. Без лицензии &mdash; <strong>конфискация</strong> на таможне.</p>
       </div>
       <div class="item-body">
-        <p><strong>Где купить:</strong> DNS, М.Видео, Ozon. Korting KSI 8181 или Maunfeld &mdash; китайское производство, адекватные цены.</p>
+        <p><strong>Где купить:</strong> DNS, М.Видео, OZON. <strong>Бренды:</strong> Korting, Maunfeld, Midea &mdash; всё китайское производство, адекватные цены.</p>
       </div>
     </div>
 
     <!-- 9 -->
-    <div class="item" data-type="china" style="animation-delay:0.45s">
+    <div class="item" data-type="russia" style="animation-delay:0.45s">
       <div class="item-top">
         <div class="item-num">09</div>
         <div class="item-title-wrap">
-          <div class="item-title">Микроволновка встроенная</div>
-          <div class="item-subtitle">С грилем, 60x38 см</div>
+          <div class="item-title">Диванчик на балкон</div>
+          <div class="item-subtitle">Компактный &middot; дешёвый</div>
         </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">5-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">12-35 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-50%</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON/WB</div><div class="price-cell-val russia">4-10 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~6 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Почему РФ</div><div class="price-cell-val" style="color:var(--fg-dim);font-size:0.8rem">объёмный, деформация</div></div>
       </div>
       <div class="item-body">
-        <p>Midea встраиваемая за 10-15 т.р. из Китая vs 20-30 т.р. в РФ. Вес ~15-18 кг, доставка $20-50.</p>
-        <p><strong>Бренд:</strong> Midea OEM &mdash; именно они делают Gorenje и часть Candy, которые продаются вдвое дороже.</p>
+        <p>Мягкая мебель деформируется при транспортировке, большой объём. На OZON те же китайские диваны от 4 000 ₽ с доставкой за 2 дня.</p>
+        <p><strong>Совет:</strong> для балкона бери самый простой &mdash; подушки на каркасе. От 4 до 8 т.р. на OZON.</p>
       </div>
     </div>
 
@@ -707,58 +934,60 @@ body {
       <div class="item-top">
         <div class="item-num">10</div>
         <div class="item-title-wrap">
-          <div class="item-title">Диванчик на балкон</div>
-          <div class="item-subtitle">Раскладной, 1 метр</div>
+          <div class="item-title">Стол на балкон</div>
+          <div class="item-subtitle">Компактный &middot; средний</div>
         </div>
         <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">4-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">8.5-30 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">30-50%</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON</div><div class="price-cell-val russia">3-8 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~5 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия из Китая</div><div class="price-cell-val" style="color:var(--fg-dim)">0 ₽</div></div>
       </div>
       <div class="item-body">
-        <p>Мягкая мебель деформируется при транспортировке, большой объём. На Ozon/Wildberries те же китайские диваны по разумным ценам.</p>
+        <p>На OZON тот же китайский стол за 3 200-6 000 ₽ с бесплатной доставкой. Разницы с AliExpress нет &mdash; зато приедет за 2 дня.</p>
       </div>
     </div>
 
     <!-- 11 -->
-    <div class="item" data-type="maybe" style="animation-delay:0.55s">
+    <div class="item" data-type="china" style="animation-delay:0.55s">
       <div class="item-top">
         <div class="item-num">11</div>
         <div class="item-title-wrap">
-          <div class="item-title">Стол на балкон</div>
-          <div class="item-subtitle">По ширине, 1 метр</div>
+          <div class="item-title">Вытяжка Fotile</div>
+          <div class="item-subtitle">Встраиваемая &middot; средняя модель</div>
         </div>
-        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">3-6 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">3.2-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-40%</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">15-25 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия (аналог)</div><div class="price-cell-val russia">35-60 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-60%</div></div>
       </div>
       <div class="item-body">
-        <p>Разница минимальна. На OZON тот же китайский стол стоит 3 200-6 000 руб.</p>
+        <p>Fotile и Robam &mdash; топовые китайские бренды, лидеры мирового рынка, в России почти неизвестны. Качество на уровне Bosch/Siemens. Вес 8-15 кг, доставка бесплатная.</p>
+        <p><strong>Средняя модель Fotile:</strong> ~20 000 ₽ на AliExpress. Аналог в России (Elica/Faber) &mdash; 40-60 т.р.</p>
       </div>
     </div>
 
     <!-- 12 -->
-    <div class="item" data-type="china" style="animation-delay:0.6s">
+    <div class="item" data-type="russia" style="animation-delay:0.6s">
       <div class="item-top">
         <div class="item-num">12</div>
         <div class="item-title-wrap">
-          <div class="item-title">Вытяжка на кухню</div>
-          <div class="item-subtitle">Встраиваемая, 60 см</div>
+          <div class="item-title">Стулья обеденные (3 шт.)</div>
+          <div class="item-subtitle">Дефолтные, минимализм</div>
         </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти (Fotile)</span>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай (Fotile)</div><div class="price-cell-val china">10-30 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия (аналог)</div><div class="price-cell-val russia">20-120 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-60%</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON (3 шт.)</div><div class="price-cell-val russia">9-15 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~10 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">За штуку</div><div class="price-cell-val" style="color:var(--fg-dim)">~3 300 ₽</div></div>
       </div>
       <div class="item-body">
-        <p>Fotile и Robam &mdash; топовые китайские бренды, лидеры рынка, в России почти неизвестны. Качество на уровне европейских брендов. Вес 8-15 кг.</p>
+        <p>Дефолтные стулья на OZON от 2 000-5 000 ₽/шт. &mdash; те же китайские фабрики. Разница с AliExpress: 0-15%. Зато приедут за 2 дня и можно вернуть.</p>
+        <p><strong>Бренды:</strong> Loft (PC-015), Stool Group, Easy. Скандинавский стиль &mdash; самый ходовой.</p>
       </div>
     </div>
 
@@ -767,40 +996,41 @@ body {
       <div class="item-top">
         <div class="item-num">13</div>
         <div class="item-title-wrap">
-          <div class="item-title">Стулья обеденные (3 шт.)</div>
-          <div class="item-subtitle">Кухонные, современный минимализм</div>
+          <div class="item-title">Стол кухонный круглый</div>
+          <div class="item-subtitle">80-100 см, раздвижной, красивый</div>
         </div>
         <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай (3 шт.)</div><div class="price-cell-val china">4.5-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия (3 шт.)</div><div class="price-cell-val russia">6-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">10-20%</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON/Леруа</div><div class="price-cell-val russia">12-25 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Средняя цена</div><div class="price-cell-val russia">~16 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Из Китая</div><div class="price-cell-val" style="color:var(--fg-dim)">дороже с доставкой</div></div>
       </div>
       <div class="item-body">
-        <p>На AliExpress стул-минимализм от 1 500 руб./шт., но с доставкой 500-1 500 руб. каждый. На OZON аналоги от 2 000-5 000 руб./шт. с бесплатной доставкой. Экономия мизерная, а риск повреждения при доставке &mdash; высокий.</p>
-        <p><strong>Где купить:</strong> OZON, Wildberries, Stool Group. <strong>Бренды:</strong> Loft (PC-015), INGOLF-аналоги, Easy.</p>
+        <p>Тяжёлый (15-25 кг), хрупкая столешница. На OZON круглые раздвижные столы от 12 000 ₽ &mdash; отличный выбор. Со спечённым камнем (sintered stone) &mdash; тренд, от 15 т.р.</p>
+        <p><strong>Бренды:</strong> Mamadoma, Stool Group, RIDDLE. Раздвижной 80 &rarr; 120 см &mdash; идеально для 36 м².</p>
       </div>
     </div>
 
     <!-- 14 -->
-    <div class="item" data-type="russia" style="animation-delay:0.7s">
+    <div class="item" data-type="china" style="animation-delay:0.7s">
       <div class="item-top">
         <div class="item-num">14</div>
         <div class="item-title-wrap">
-          <div class="item-title">Стол кухонный круглый</div>
-          <div class="item-subtitle">80-100 см, стандартный</div>
+          <div class="item-title">Люстра / потолочный LED</div>
+          <div class="item-subtitle">80-100 Вт, с пультом ДУ &middot; средняя</div>
         </div>
-        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">8-25 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">7-20 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val danger">отрицательная</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">4-8 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">9-15 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
       </div>
       <div class="item-body">
-        <p>Тяжёлый товар (15-30 кг), хрупкая столешница. Доставка карго $40-100 съедает любую разницу. На OZON круглые столы 80-100 см от 7 000 руб. с бесплатной доставкой &mdash; те же китайские фабрики.</p>
-        <p><strong>Где купить:</strong> OZON, Леруа Мерлен. Столы со спечённым камнем (sintered stone) &mdash; тренд, от 12 т.р. на OZON.</p>
+        <p>Одна из лучших позиций для Китая. Лёгкая (2-4 кг), доставка бесплатная. Средняя LED-люстра с пультом ДУ (диммер + смена температуры) за 5-8 т.р. на Ali &mdash; аналог за 12-20 т.р. в РФ.</p>
+        <p><strong>Бренды:</strong> IRALAN, Manggic, Nordic-стиль. <strong>Совместимость:</strong> 220В, цоколь E27/E14 &mdash; стандартный.</p>
+        <p><strong>Совет:</strong> выбирай продавца с рейтингом 4.8+ и 1000+ отзывов. Не бери самые дешёвые модели &mdash; плохие драйверы.</p>
       </div>
     </div>
 
@@ -809,40 +1039,19 @@ body {
       <div class="item-top">
         <div class="item-num">15</div>
         <div class="item-title-wrap">
-          <div class="item-title">Люстра / потолочный LED</div>
-          <div class="item-subtitle">Современная, для основных комнат</div>
-        </div>
-        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
-      </div>
-      <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">2-10 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">5-25 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
-      </div>
-      <div class="item-body">
-        <p>Одна из самых выгодных позиций для заказа из Китая. Лёгкая (1-3 кг), компактная, доставка бесплатная или $5-15. LED-люстры на AliExpress &mdash; огромный выбор дизайнерских моделей от 2 000 руб., которые в России продаются под наценкой x2-3.</p>
-        <p><strong>Бренды:</strong> IRALAN, Mantra, Nordic-стиль. <strong>Совместимость:</strong> 220В &mdash; полностью совместимо, цоколь E27/E14 стандартный.</p>
-      </div>
-    </div>
-
-    <!-- 16 -->
-    <div class="item" data-type="russia" style="animation-delay:0.8s">
-      <div class="item-top">
-        <div class="item-num">16</div>
-        <div class="item-title-wrap">
           <div class="item-title">Гардеробная металлическая</div>
-          <div class="item-subtitle">Открытая система, стойки + полки</div>
+          <div class="item-subtitle">Открытый стеллаж &middot; по дешёвке</div>
         </div>
-        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай</span>
       </div>
       <div class="prices">
-        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">5-15 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">4-14 т.р.</div></div>
-        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val danger">отрицательная</div></div>
+        <div class="price-cell"><div class="price-cell-label">AliExpress</div><div class="price-cell-val china">3-6 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">OZON</div><div class="price-cell-val russia">4.5-8 000 ₽</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">~1-2 т.р.</div></div>
       </div>
       <div class="item-body">
-        <p>Металлические гардеробные системы тяжёлые (15-30 кг), объёмные. Доставка карго $30-80 делает покупку из Китая дороже. На OZON и Wildberries те же китайские системы от 4 000 руб. с бесплатной доставкой.</p>
-        <p><strong>Где купить:</strong> OZON, Wildberries, Леруа Мерлен. <strong>Бренды:</strong> Artmoon, FALADA, Sheffilton. Системы на колёсиках &mdash; удобно для 36 кв.м.</p>
+        <p>Честно: разница минимальная (1-2 т.р.). На Ali дешёвые стеллажные системы от 3 000 ₽ с бесплатной доставкой. Но тяжёлый металл &mdash; риск повреждения при перевозке.</p>
+        <p><strong>Альтернатива:</strong> если не хочешь ждать 3 недели &mdash; на OZON от 4 500 ₽ такой же стеллаж с доставкой за 2 дня.</p>
       </div>
     </div>
 
@@ -857,117 +1066,87 @@ body {
   </div>
   <table class="summary-table">
     <thead>
-      <tr><th>Позиция</th><th>Решение</th><th>Китай</th><th>Россия</th><th>Вес</th></tr>
+      <tr><th>#</th><th>Позиция</th><th>Где</th><th>Цена ₽</th><th>Качество</th></tr>
     </thead>
     <tbody>
-      <tr class="highlight"><td><strong>Кровать-трансформер</strong></td><td><span class="tag tag-green">Китай</span></td><td>12-20 т.р.</td><td>87-120 т.р.*</td><td>30-50 кг</td></tr>
-      <tr><td>Раковина в туалет</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>2-5 т.р.</td><td>&mdash;</td></tr>
-      <tr><td>Раковина на кухню</td><td><span class="tag tag-orange">Решай</span></td><td>3.5-7 т.р.</td><td>4-12 т.р.</td><td>8-12 кг</td></tr>
-      <tr class="highlight"><td><strong>Робот-пылесос</strong></td><td><span class="tag tag-green">Китай</span></td><td>28-70 т.р.</td><td>38-100 т.р.</td><td>8 кг</td></tr>
-      <tr class="highlight"><td><strong>Измельчитель</strong></td><td><span class="tag tag-green">Китай</span></td><td>4.2-13 т.р.</td><td>9-31 т.р.</td><td>4-6 кг</td></tr>
-      <tr><td>Духовка</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>17-35 т.р.</td><td>&mdash;</td></tr>
-      <tr><td>Плита 2-конфорочная</td><td><span class="tag tag-orange">Решай</span></td><td>5-9 т.р.</td><td>5-12 т.р.</td><td>5-8 кг</td></tr>
-      <tr><td>Холодильник</td><td><span class="tag tag-red">Россия!</span></td><td>&mdash;</td><td>25-55 т.р.</td><td>&mdash;</td></tr>
-      <tr class="highlight"><td><strong>Микроволновка</strong></td><td><span class="tag tag-green">Китай</span></td><td>10-15 т.р.</td><td>20-35 т.р.</td><td>15-18 кг</td></tr>
-      <tr><td>Диванчик балкон</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>8.5-20 т.р.</td><td>&mdash;</td></tr>
-      <tr><td>Стол балкон</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>3.2-8 т.р.</td><td>&mdash;</td></tr>
-      <tr class="highlight"><td><strong>Вытяжка Fotile</strong></td><td><span class="tag tag-green">Китай</span></td><td>10-25 т.р.</td><td>20-60 т.р.</td><td>10-15 кг</td></tr>
-      <tr><td>Стулья 3 шт.</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>6-15 т.р.</td><td>&mdash;</td></tr>
-      <tr><td>Стол круглый</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>7-20 т.р.</td><td>&mdash;</td></tr>
-      <tr class="highlight"><td><strong>Люстра LED</strong></td><td><span class="tag tag-green">Китай</span></td><td>2-10 т.р.</td><td>5-25 т.р.</td><td>1-3 кг</td></tr>
-      <tr><td>Гардеробная металл</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>4-14 т.р.</td><td>&mdash;</td></tr>
+      <tr class="highlight"><td>1</td><td><strong>Кровать-трансформер</strong></td><td><span class="tag tag-green">Китай + РФ</span></td><td style="color:var(--green)">~32 000</td><td>Среднее</td></tr>
+      <tr><td>2</td><td>Раковина туалет</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~8 000</td><td>Среднее</td></tr>
+      <tr class="highlight"><td>3</td><td><strong>Раковина кухня</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~5 000</td><td>Среднее</td></tr>
+      <tr class="highlight"><td>4</td><td><strong>Робот Roborock</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~25 000</td><td>Хорошее</td></tr>
+      <tr class="highlight"><td>5</td><td><strong>Измельчитель</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~7 000</td><td>Среднее</td></tr>
+      <tr><td>6</td><td>Духовка</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~18 000</td><td>Средн./бюдж.</td></tr>
+      <tr class="highlight"><td>7</td><td><strong>Плита 2-конф.</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~7 000</td><td>Среднее</td></tr>
+      <tr><td>8</td><td>Холодильник</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~35 000</td><td>Среднее</td></tr>
+      <tr><td>9</td><td>Диванчик балкон</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~6 000</td><td>Бюджет</td></tr>
+      <tr><td>10</td><td>Стол балкон</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~5 000</td><td>Среднее</td></tr>
+      <tr class="highlight"><td>11</td><td><strong>Вытяжка Fotile</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~20 000</td><td>Среднее</td></tr>
+      <tr><td>12</td><td>Стулья 3 шт.</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~10 000</td><td>Бюджет</td></tr>
+      <tr><td>13</td><td>Стол круглый раздв.</td><td><span class="tag tag-red">Россия</span></td><td style="color:var(--orange)">~16 000</td><td>Среднее</td></tr>
+      <tr class="highlight"><td>14</td><td><strong>Люстра LED</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~6 000</td><td>Среднее</td></tr>
+      <tr class="highlight"><td>15</td><td><strong>Гардеробная</strong></td><td><span class="tag tag-green">Китай</span></td><td style="color:var(--green)">~4 000</td><td>Бюджет</td></tr>
+      <tr class="total-row"><td></td><td><strong>ИТОГО</strong></td><td></td><td><strong style="background: linear-gradient(135deg, var(--green), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size:1.1rem;">~204 000 ₽</strong></td><td></td></tr>
     </tbody>
   </table>
-  <p style="font-size:0.78rem;color:var(--fg-dim)">* Цена готовой кровати. Из Китая везёшь только механизм, корпус делаешь в РФ.</p>
-</section>
-
-<!-- LOGISTICS -->
-<section id="logistics" class="section">
-  <div class="section-title">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 10h22"/></svg>
-    Логистика
-  </div>
-
-  <div class="alert-box" style="border-color:var(--orange-border); background:var(--orange-bg);">
-    <h4 style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Маленькая партия: ~76 кг / 0.42 м3</h4>
-    <p>Это слишком мало для карго. Оптимально &mdash; заказать каждую позицию отдельно через <strong>AliExpress</strong> (доставка включена в цену).</p>
-  </div>
-
-  <table class="summary-table" style="margin-top:16px;">
-    <thead><tr><th>Вариант</th><th>Стоимость</th><th>Срок</th><th>Комментарий</th></tr></thead>
-    <tbody>
-      <tr class="highlight"><td><strong>AliExpress (отдельно)</strong></td><td>Включено в цену</td><td>15-45 дней</td><td><span class="tag tag-green">Оптимально</span></td></tr>
-      <tr><td>Посредник + карго</td><td>~25-35 т.р.</td><td>20-30 дней</td><td>Дорого для такого объёма</td></tr>
-      <tr><td>1688 + Master-Tao</td><td>Товар + 5-15% + карго</td><td>25-40 дней</td><td>Если цены на 1688 ниже Ali на 20%+</td></tr>
-    </tbody>
-  </table>
+  <p style="font-size:0.78rem;color:var(--fg-dim);margin-top:10px">Цены указаны средние для выбранного уровня качества. Реальный диапазон: 175 000 &mdash; 240 000 ₽ в зависимости от конкретных моделей.</p>
 </section>
 
 <!-- PLAN -->
 <section id="plan" class="section">
   <div class="section-title">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 14l2 2 4-4"/></svg>
-    Финальная рекомендация
-  </div>
-
-  <div class="split-panels">
-    <div class="panel china">
-      <h4>Купить из Китая (AliExpress)</h4>
-      <ol>
-        <li><strong>Механизм кровати</strong> &mdash; 12-20 т.р.</li>
-        <li><strong>Измельчитель Qcooker</strong> &mdash; 10-13 т.р.</li>
-        <li><strong>Микроволновка Midea</strong> &mdash; 10-15 т.р.</li>
-        <li><strong>Вытяжка Fotile</strong> &mdash; 15-25 т.р.</li>
-        <li><strong>Робот-пылесос</strong> &mdash; 28-70 т.р.</li>
-        <li><strong>Люстра LED</strong> &mdash; 2-10 т.р.</li>
-      </ol>
-      <div class="total" style="color:var(--green)">Итого: 77-153 т.р.</div>
-    </div>
-    <div class="panel russia">
-      <h4>Купить в России</h4>
-      <ol>
-        <li>Раковина в туалет &mdash; 2-5 т.р.</li>
-        <li>Раковина на кухню &mdash; 4-12 т.р.</li>
-        <li>Духовка Midea &mdash; 17-25 т.р.</li>
-        <li>Плита 2-конфорочная &mdash; 5-12 т.р.</li>
-        <li>Холодильник &mdash; 25-55 т.р.</li>
-        <li>Диванчик балкон &mdash; 8.5-20 т.р.</li>
-        <li>Стол балкон &mdash; 3.2-8 т.р.</li>
-        <li>Стулья 3 шт. &mdash; 6-15 т.р.</li>
-        <li>Стол круглый &mdash; 7-20 т.р.</li>
-        <li>Гардеробная металл &mdash; 4-14 т.р.</li>
-      </ol>
-      <div class="total" style="color:var(--orange)">Итого: 81.7-186 т.р.</div>
-    </div>
-  </div>
-
-  <div class="budget-box">
-    <div class="budget-val">159-339 т.р.</div>
-    <div class="budget-label">Общий бюджет на все 16 позиций</div>
-    <div class="budget-compare">Если всё в России: 214-459 т.р. &middot; <strong style="color:var(--green)">Экономия: 55-120 т.р.</strong></div>
-  </div>
-
-  <div class="section-title" style="margin-top:32px;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    Пошаговый план
+    Пошаговый план действий
   </div>
 
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <div class="step-text"><strong>Сейчас:</strong> Закажи на AliExpress робот-пылесос, измельчитель и люстру &mdash; лёгкие, доставка бесплатная, приедут через 2-4 недели</div>
+      <div class="step-text"><strong>Прямо сейчас (AliExpress):</strong> Закажи робот-пылесос Roborock (~25 т.р.), измельчитель Qcooker (~7 т.р.), люстру LED (~6 т.р.) и гардеробную (~4 т.р.). Лёгкие товары, доставка бесплатная, приедут через 2-4 недели.</div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="step-text"><strong>Параллельно:</strong> Найди на 1688/AliExpress механизм кровати, микроволновку Midea и вытяжку Fotile. Сравни с посредником Master-Tao</div>
+      <div class="step-text"><strong>Параллельно (AliExpress):</strong> Найди механизм кровати-трансформера (~12 т.р.), раковину кухня кварц (~5 т.р.), плиту 2-конфорочную (~7 т.р.) и вытяжку Fotile (~20 т.р.). Сравни модели, читай отзывы.</div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <div class="step-text"><strong>В России:</strong> Закажи холодильник, духовку и плиту в DNS/М.Видео. Раковины в Леруа Мерлен. Стулья, круглый стол, гардеробную, диван и столик на OZON</div>
+      <div class="step-text"><strong>В России (одновременно):</strong> Холодильник + духовку в DNS/М.Видео (~53 т.р.). Раковину туалет в Леруа (~8 т.р.). Стулья, стол круглый, диван и столик балкон на OZON (~37 т.р.).</div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
-      <div class="step-text"><strong>Сборка:</strong> Механизм кровати передай мастеру по фасадам. Микроволновку и вытяжку установи при монтаже кухни. Люстру повесь после чистовой отделки</div>
+      <div class="step-text"><strong>Через 2-4 недели (сборка):</strong> Механизм кровати передай мебельщику &mdash; он сделает короб (~20 т.р., 5-7 дней). Вытяжку и плиту установи при монтаже кухни. Люстру повесь последней.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-text"><strong>Финал:</strong> Подключи робот-пылесос (скачай приложение Roborock/Xiaomi Home). Измельчитель подключи к раковине (мастер или сам &mdash; 15 минут). Готово!</div>
+    </div>
+  </div>
+
+  <div class="split-panels" style="margin-top:32px;">
+    <div class="panel china">
+      <h4>Заказать из Китая (AliExpress)</h4>
+      <ol>
+        <li><strong>Механизм кровати</strong> &mdash; ~12 000 ₽</li>
+        <li><strong>Раковина кухня (кварц)</strong> &mdash; ~5 000 ₽</li>
+        <li><strong>Робот Roborock</strong> &mdash; ~25 000 ₽</li>
+        <li><strong>Измельчитель</strong> &mdash; ~7 000 ₽</li>
+        <li><strong>Плита 2-конф.</strong> &mdash; ~7 000 ₽</li>
+        <li><strong>Вытяжка Fotile</strong> &mdash; ~20 000 ₽</li>
+        <li><strong>Люстра LED</strong> &mdash; ~6 000 ₽</li>
+        <li><strong>Гардеробная</strong> &mdash; ~4 000 ₽</li>
+      </ol>
+      <div class="total" style="color:var(--green)">+ короб кровати (РФ): ~20 000 ₽<br>Итого: ~106 000 ₽</div>
+    </div>
+    <div class="panel russia">
+      <h4>Купить в России</h4>
+      <ol>
+        <li>Раковина туалет &mdash; ~8 000 ₽</li>
+        <li>Духовка Midea &mdash; ~18 000 ₽</li>
+        <li>Холодильник &mdash; ~35 000 ₽</li>
+        <li>Диванчик балкон &mdash; ~6 000 ₽</li>
+        <li>Стол балкон &mdash; ~5 000 ₽</li>
+        <li>Стулья 3 шт. &mdash; ~10 000 ₽</li>
+        <li>Стол круглый раздвижной &mdash; ~16 000 ₽</li>
+      </ol>
+      <div class="total" style="color:var(--orange)">Итого: ~98 000 ₽</div>
     </div>
   </div>
 </section>
@@ -983,9 +1162,11 @@ body {
     <tbody>
       <tr><td>Напряжение / розетки</td><td>Китай = 220В/50Гц &mdash; совместимо. Проверь тип вилки (Type C / евровилка)</td></tr>
       <tr><td>Гарантия</td><td>AliExpress &mdash; возврат 15 дней. Midea/Haier имеют сервис в РФ, но только на официально ввезённую технику</td></tr>
-      <tr><td>Сертификация</td><td>Для личного использования сертификат ЕАЭС не нужен. При подозрении на коммерцию &mdash; задержат</td></tr>
-      <tr><td>Приложения</td><td>Китайская версия робота может работать на китайских серверах. Проверяй Global/EU прошивку</td></tr>
-      <tr><td style="color:var(--red)">Фреон (холодильник)</td><td>НЕ ВВОЗИТЬ. С 2024 &mdash; лицензия Минпромторга ~200 т.р., только для юрлиц</td></tr>
+      <tr><td>Raковина + измельчитель</td><td>Проверь совместимость: диаметр слива раковины 90 мм (стандарт для диспоузеров)</td></tr>
+      <tr><td>Робот-пылесос (язык)</td><td>Ищи Global-версию Roborock. Китайская версия может работать на китайских серверах</td></tr>
+      <tr><td style="color:var(--red)">Холодильник = фреон</td><td>ТОЛЬКО в России. С 2024 &mdash; лицензия Минпромторга ~200 т.р., только для юрлиц</td></tr>
+      <tr><td>Кровать-трансформер</td><td>Найди мебельщика заранее. Покажи ему механизм, убедись что он работал с такими. Попроси 3D-проект</td></tr>
+      <tr><td>Таможня (лимит 200€)</td><td>Каждый заказ на AliExpress &mdash; отдельная посылка. Вытяжка Fotile может превысить лимит &mdash; пошлина 15% сверх 200€</td></tr>
     </tbody>
   </table>
 </section>
@@ -994,23 +1175,26 @@ body {
 <section id="sources" class="section">
   <div class="section-title">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-    Источники (15)
+    Источники (18)
   </div>
   <div class="sources-grid">
     <a href="https://t-j.ru/guide/duty-free-import-of-goods/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Т-Ж &mdash; беспошлинный ввоз 2025</a>
-    <a href="https://t-j.ru/fifty-shades-of-parallel/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Т-Ж &mdash; параллельный импорт</a>
     <a href="https://www.rbc.ru/technology_and_media/25/10/2024/671a697f9a79470bbdebe867" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>РБК &mdash; фреон и холодильники</a>
-    <a href="https://www.techinsider.ru/gadgets/1694425-ne-shirpotreb-5-kitaiskih-brendov-bytovoi-tehniki-s-proverennoi-reputaciei/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>TechInsider &mdash; китайские бренды</a>
+    <a href="https://www.ozon.ru/category/stul-obedennyy/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>OZON &mdash; обеденные стулья</a>
+    <a href="https://www.ozon.ru/category/stol-kuhonnyy-kruglyy-100-sm/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>OZON &mdash; круглые столы</a>
+    <a href="https://www.ixbt.com/live/topcompile/10-stilnyh-lyustr-s-aliexpress-do-5000-rub.html" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>iXBT &mdash; люстры с AliExpress</a>
+    <a href="https://www.ozon.ru/category/metallicheskie-garderobnye-sistemy/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>OZON &mdash; металл. гардеробные</a>
+    <a href="https://stoolgroup.ru/stoly-obedennye/kruglye/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Stool Group &mdash; круглые столы</a>
     <a href="https://www.ixbt.com/live/topcompile/kitayskie-versii-robotov-pylesosov-chto-kupit.html" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>iXBT &mdash; роботы-пылесосы</a>
     <a href="https://1kargo.ru/delivery/czenyi/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>1Kargo &mdash; калькулятор доставки</a>
-    <a href="https://iz.ru/1366539/evgeniia-pertceva/sbytovaia-elektronika-prodavtcy-dadut-god-garantii-na-parallelnyi-import" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Известия &mdash; гарантия импорт</a>
     <a href="https://stroyday.ru/tovary-s-aliexpress/top-10-izmelchitelej-pishhevyx-otxodov-s-aliexpress.html" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Стройдвор &mdash; измельчители Ali</a>
-    <a href="https://logichina.ru/blog/brendy-bytovoj-tehniki/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>LogiChina &mdash; бренды техники</a>
+    <a href="https://prokitay.ru/mebel-transformer-iz-kitaya/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ProKitay &mdash; трансформеры</a>
     <a href="https://raketacn.ru/journal/skolko-stoit-dostavka-iz-kitaya" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ракета &mdash; доставка из Китая</a>
     <a href="https://china-west.ru/article/chto-nuzhno-znat-o-poshlinakh-i-nalogakh-pri-importe-iz-kitaya-v-2025-godu/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>China-West &mdash; пошлины 2025</a>
+    <a href="https://towercargo.ru/dostavka-mebeli-iz-kitaya/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>TowerCargo &mdash; мебель из Китая</a>
+    <a href="https://titangs.ru/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Titan-GS &mdash; гардеробные</a>
+    <a href="https://ali-obzor.ru/obzory/luchshie-lyustry-s-aliexpress/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ali-Обзор &mdash; люстры</a>
     <a href="https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ФТС &mdash; нормы ввоза</a>
-    <a href="https://prokitay.ru/mebel-transformer-iz-kitaya/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ProKitay &mdash; трансформеры</a>
-    <a href="https://ru.dreametech.com/catalog/roboty-pylesosy" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Dreame &mdash; каталог</a>
     <a href="https://www.alta.ru/external_news/114061/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Alta.ru &mdash; ограничения ввоза</a>
   </div>
 </section>
@@ -1018,7 +1202,7 @@ body {
 </div>
 
 <footer class="footer">
-  Deep Research v3 &middot; 20 марта 2026 &middot; 7 параллельных агентов &middot; 20+ источников
+  Финальный бюджет v4 &middot; 20 марта 2026 &middot; 11 параллельных агентов &middot; 18+ источников
 </footer>
 
 <script>
@@ -1031,7 +1215,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     const filter = btn.dataset.filter;
     document.querySelectorAll('.item').forEach(item => {
       if (filter === 'all') { item.classList.remove('hidden'); }
-      else if (filter === 'russia') { item.classList.toggle('hidden', item.dataset.type !== 'russia'); }
       else { item.classList.toggle('hidden', item.dataset.type !== filter); }
     });
   });
