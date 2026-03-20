@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12 позиций из Китая | Ремонт квартиры 36 кв.м.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #050507;
+  --bg-base: #0a0a0f;
+  --bg-elevated: #111118;
+  --surface: rgba(255,255,255,0.04);
+  --surface-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.14);
+  --fg: #EDEDEF;
+  --fg-muted: #8A8F98;
+  --fg-dim: #5C6070;
+  --accent: #5E6AD2;
+  --accent-light: #7B85E0;
+  --accent-glow: rgba(94,106,210,0.25);
+  --green: #2DD4A8;
+  --green-bg: rgba(45,212,168,0.1);
+  --green-border: rgba(45,212,168,0.25);
+  --orange: #F5A623;
+  --orange-bg: rgba(245,166,35,0.1);
+  --orange-border: rgba(245,166,35,0.25);
+  --red: #EF4444;
+  --red-bg: rgba(239,68,68,0.1);
+  --red-border: rgba(239,68,68,0.25);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --ease: cubic-bezier(0.16,1,0.3,1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg-deep);
+  color: var(--fg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* === NAV === */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,7,0.82);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: flex; align-items: center; gap: 8px;
+  height: 56px; overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display:none; }
+.nav-link {
+  color: var(--fg-muted); text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease);
+  cursor: pointer;
+}
+.nav-link:hover { color: var(--fg); background: var(--surface-hover); }
+.nav-link.active { color: var(--accent-light); background: var(--accent-glow); }
+
+/* === HERO === */
+.hero {
+  position: relative;
+  padding: 80px 24px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 20%, rgba(94,106,210,0.18) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 30% 80%, rgba(45,212,168,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 0.78rem; color: var(--fg-muted);
+  margin-bottom: 20px;
+}
+.hero-badge svg { width: 14px; height: 14px; }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  background: linear-gradient(135deg, #fff 40%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 14px;
+}
+.hero-sub {
+  font-size: 1.05rem; color: var(--fg-muted);
+  max-width: 560px; margin: 0 auto;
+}
+
+/* === CONTAINER === */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* === KPI STRIP === */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 40px 0;
+}
+.kpi {
+  background: var(--bg-elevated);
+  padding: 28px 20px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.kpi:hover { background: var(--surface-hover); }
+.kpi-val {
+  font-size: 1.8rem; font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--green) 0%, var(--accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.kpi-label { font-size: 0.78rem; color: var(--fg-dim); margin-top: 4px; }
+
+/* === SECTIONS === */
+.section { margin: 56px 0; }
+.section-title {
+  font-size: 1.35rem; font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+}
+.section-title svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; }
+
+/* === VERDICT BOX === */
+.verdict {
+  background: var(--bg-elevated);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.verdict::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+}
+.verdict h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.verdict p { color: var(--fg-muted); }
+.verdict strong { color: var(--fg); }
+
+/* === FILTER TABS === */
+.filters {
+  display: flex; gap: 8px; margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  font-family: var(--font);
+}
+.filter-btn:hover { border-color: var(--border-strong); color: var(--fg); }
+.filter-btn.active { background: var(--accent-glow); border-color: var(--accent); color: var(--accent-light); }
+
+/* === ITEM CARDS === */
+.items-grid { display: flex; flex-direction: column; gap: 16px; }
+.item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  transition: all 0.25s var(--ease);
+  animation: fadeUp 0.4s var(--ease) both;
+}
+.item:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.item.hidden { display: none; }
+.item-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 12px;
+  margin-bottom: 16px;
+}
+.item-num {
+  width: 36px; height: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; color: var(--fg-dim);
+  flex-shrink: 0;
+}
+.item-title-wrap { flex: 1; }
+.item-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+.item-subtitle { font-size: 0.8rem; color: var(--fg-dim); }
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 0.75rem; font-weight: 600;
+  white-space: nowrap; flex-shrink: 0;
+}
+.tag svg { width: 12px; height: 12px; }
+.tag-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.tag-orange { background: var(--orange-bg); color: var(--orange); border: 1px solid var(--orange-border); }
+.tag-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+.prices {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px; margin-bottom: 16px;
+}
+.price-cell {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px; text-align: center;
+}
+.price-cell-label { font-size: 0.7rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+.price-cell-val { font-size: 1.15rem; font-weight: 700; }
+.price-cell-val.china { color: var(--green); }
+.price-cell-val.russia { color: var(--orange); }
+.price-cell-val.save { color: var(--accent-light); }
+.price-cell-val.danger { color: var(--red); }
+
+.item-body { color: var(--fg-muted); font-size: 0.88rem; }
+.item-body p { margin-bottom: 8px; }
+.item-body strong { color: var(--fg); font-weight: 600; }
+
+.alert-box {
+  background: var(--red-bg);
+  border: 1px solid var(--red-border);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px; margin: 12px 0;
+}
+.alert-box h4 { color: var(--red); font-size: 0.88rem; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.alert-box h4 svg { width: 16px; height: 16px; }
+.alert-box p { color: var(--fg-muted); font-size: 0.84rem; margin-bottom: 4px; }
+
+/* === SUMMARY TABLE === */
+.summary-table {
+  width: 100%; border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.summary-table th {
+  background: var(--bg-elevated);
+  color: var(--fg-dim);
+  font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 14px 16px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.summary-table td {
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-deep);
+  transition: background 0.15s;
+}
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover td { background: var(--surface-hover); }
+.summary-table tr.highlight td { background: rgba(94,106,210,0.04); }
+
+/* === SPLIT PANELS === */
+.split-panels {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin: 24px 0;
+}
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  position: relative; overflow: hidden;
+}
+.panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.panel.china::before { background: linear-gradient(90deg, var(--green), var(--accent)); }
+.panel.russia::before { background: linear-gradient(90deg, var(--orange), var(--red)); }
+.panel h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; }
+.panel.china h4 { color: var(--green); }
+.panel.russia h4 { color: var(--orange); }
+.panel ol { padding-left: 20px; }
+.panel li { font-size: 0.85rem; color: var(--fg-muted); margin-bottom: 6px; }
+.panel li strong { color: var(--fg); }
+.panel .total { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); font-weight: 700; font-size: 0.95rem; }
+
+/* === BUDGET BOX === */
+.budget-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--green-border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  margin: 24px 0;
+  position: relative; overflow: hidden;
+}
+.budget-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--green-bg), transparent 70%);
+  pointer-events: none;
+}
+.budget-val {
+  font-size: 2.4rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--green), var(--accent-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.budget-label { color: var(--fg-muted); font-size: 0.88rem; margin-top: 4px; }
+.budget-compare { color: var(--fg-dim); font-size: 0.82rem; margin-top: 12px; }
+
+/* === STEPS === */
+.steps { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+.step {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  transition: all 0.2s var(--ease);
+}
+.step:hover { border-color: var(--border-strong); }
+.step-num {
+  width: 32px; height: 32px;
+  background: var(--accent-glow);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; font-weight: 700; color: var(--accent-light);
+  flex-shrink: 0;
+}
+.step-text { font-size: 0.88rem; color: var(--fg-muted); }
+.step-text strong { color: var(--fg); }
+
+/* === RISK TABLE === */
+.risk-table {
+  width: 100%; border-collapse: separate;
+  border-spacing: 0; border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border);
+}
+.risk-table th {
+  background: var(--bg-elevated);
+  color: var(--fg-dim); font-size: 0.72rem;
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 14px 16px;
+  text-align: left; border-bottom: 1px solid var(--border);
+}
+.risk-table td {
+  padding: 14px 16px; font-size: 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-deep);
+}
+.risk-table tr:last-child td { border-bottom: none; }
+.risk-table td:first-child { font-weight: 600; color: var(--fg); }
+
+/* === SOURCES === */
+.sources-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.source-link {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  color: var(--fg-muted); text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.2s var(--ease);
+}
+.source-link:hover { border-color: var(--accent); color: var(--accent-light); }
+.source-link svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--fg-dim); }
+
+/* === FOOTER === */
+.footer {
+  text-align: center; padding: 48px 24px;
+  color: var(--fg-dim); font-size: 0.78rem;
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+  .prices { grid-template-columns: 1fr; }
+  .split-panels { grid-template-columns: 1fr; }
+  .sources-grid { grid-template-columns: 1fr; }
+  .hero { padding: 56px 20px 40px; }
+  .item { padding: 20px; }
+}
+@media (max-width: 480px) {
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .kpi { padding: 20px 14px; }
+  .kpi-val { font-size: 1.4rem; }
+  .item-top { flex-direction: column; }
+  .nav-inner { gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-link active" href="#summary">Итого</a>
+    <a class="nav-link" href="#items">12 позиций</a>
+    <a class="nav-link" href="#table">Таблица</a>
+    <a class="nav-link" href="#logistics">Логистика</a>
+    <a class="nav-link" href="#plan">План</a>
+    <a class="nav-link" href="#risks">Риски</a>
+    <a class="nav-link" href="#sources">Источники</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+    Deep Research v2 &middot; 20 марта 2026
+  </div>
+  <h1>12 позиций из Китая<br>для квартиры 36 кв.м.</h1>
+  <p class="hero-sub">Цены, логистика, риски и рекомендации. Какие товары выгодно везти из Китая, а какие проще купить в России.</p>
+</header>
+
+<div class="container">
+
+<!-- KPI -->
+<section id="summary" class="section">
+  <div class="kpi-strip">
+    <div class="kpi">
+      <div class="kpi-val">5 / 12</div>
+      <div class="kpi-label">выгодно везти из Китая</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">50-120 т.р.</div>
+      <div class="kpi-label">потенциальная экономия</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">~150 т.р.</div>
+      <div class="kpi-label">стоимость доставки</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">20-28 дн.</div>
+      <div class="kpi-label">срок ж/д карго</div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <h3>Главный вывод</h3>
+    <p>Из 12 позиций <strong>только 5 реально выгодно везти из Китая</strong>: механизм кровати-трансформера, измельчитель, микроволновку, вытяжку и робот-пылесос. Остальные 7 позиций проще и безопаснее купить в России, где те же китайские товары уже продаются с минимальной наценкой.</p>
+    <p style="margin-top:8px"><strong>Холодильник категорически не везти</strong> (фреон = конфискация на таможне). Духовка тяжёлая, доставка съедает выгоду. Раковины в России по тем же ценам.</p>
+  </div>
+</section>
+
+<!-- ITEMS -->
+<section id="items" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Разбор каждой позиции
+  </div>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">Все (12)</button>
+    <button class="filter-btn" data-filter="china" aria-pressed="false">Везти из Китая (5)</button>
+    <button class="filter-btn" data-filter="maybe" aria-pressed="false">Условно (3)</button>
+    <button class="filter-btn" data-filter="russia" aria-pressed="false">Купить в России (4)</button>
+  </div>
+
+  <div class="items-grid">
+
+    <!-- 1 -->
+    <div class="item" data-type="china" style="animation-delay:0.05s">
+      <div class="item-top">
+        <div class="item-num">01</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Кровать-трансформер</div>
+          <div class="item-subtitle">Механизм газлифт + рамка + ортопед. основание</div>
+        </div>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">12-40 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">87-250 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Из Китая везут только механизм (25-50 кг). Корпус из МДФ/ДСП делаешь на заказ в РФ &mdash; идеальная комбинация с твоими российскими фасадами.</p>
+        <p><strong>Бренды:</strong> HAFELE, Murphy Wall Bed Hardware, безымянные с 1688 (от $120). <strong>Доставка:</strong> $40-100.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="item" data-type="russia" style="animation-delay:0.1s">
+      <div class="item-top">
+        <div class="item-num">02</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Раковина в туалет</div>
+          <div class="item-subtitle">Настенная или на тумбу, 40-50 см</div>
+        </div>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">0.8-6 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">1-8 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-30%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Разница минимальна. Хрупкий товар, риск боя при транспортировке. Экономия 200-1 000 руб. не стоит головной боли.</p>
+        <p><strong>Где купить:</strong> Леруа Мерлен, OZON. <strong>Бренды:</strong> Cersanit, Santek, Lemark.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="item" data-type="maybe" style="animation-delay:0.15s">
+      <div class="item-top">
+        <div class="item-num">03</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Раковина на кухню</div>
+          <div class="item-subtitle">Врезная, нержавейка или камень</div>
+        </div>
+        <span class="tag tag-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Условно</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">3.5-18 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">4-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-50%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Выгодно только на среднем/хорошем сегменте (гранит, кварц). Бюджетная нержавейка &mdash; те же цены в РФ.</p>
+        <p><strong>Китай:</strong> JOMOO, Oulin. <strong>Россия:</strong> Mixline, Zorg, Paulmark.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="item" data-type="china" style="animation-delay:0.2s">
+      <div class="item-top">
+        <div class="item-num">04</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Робот-пылесос с базой</div>
+          <div class="item-subtitle">С бочком для воды, самоочистка</div>
+        </div>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Китай / Ali</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">28-110 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">38-140 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">10-30%</div></div>
+      </div>
+      <div class="item-body">
+        <p>На топовых моделях экономия 15-30 т.р. На средних &mdash; цены сопоставимы. Китайская версия может не поддерживать русский язык.</p>
+        <p><strong>Бренды:</strong> Dreame, Roborock. Покупать на AliExpress в период распродаж (11.11).</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="item" data-type="china" style="animation-delay:0.25s">
+      <div class="item-top">
+        <div class="item-num">05</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Измельчитель (диспоузер)</div>
+          <div class="item-subtitle">Для кухонной раковины</div>
+        </div>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">4.2-13 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">9-42 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">40-60%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Одна из самых выгодных позиций. Qcooker (Xiaomi) за 12 т.р. &mdash; аналог InSinkErator за 25-31 т.р. Вес 3-6 кг, доставка $8-20.</p>
+        <p><strong>Бренды:</strong> Qcooker (Xiaomi), JIQI, ITOP. Проверь диаметр канализации (40 мм).</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="item" data-type="russia" style="animation-delay:0.3s">
+      <div class="item-top">
+        <div class="item-num">06</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Духовка встраиваемая</div>
+          <div class="item-subtitle">60 см, электрическая</div>
+        </div>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">15-25 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">15-40 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-35%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Тяжёлый груз (25-35 кг), стеклянная дверца. Доставка $60-120 съедает выгоду. Midea в DNS стоит столько же.</p>
+        <p><strong>Где купить:</strong> DNS, М.Видео. <strong>Бренды:</strong> Midea (от 17 т.р.), Weissgauff, DEXP.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="item" data-type="maybe" style="animation-delay:0.35s">
+      <div class="item-top">
+        <div class="item-num">07</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Плита двухконфорочная</div>
+          <div class="item-subtitle">Варочная панель, индукция</div>
+        </div>
+        <span class="tag tag-orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Условно</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">5-15 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">5-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">20-40%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Лёгкая (5-8 кг), компактная. Выгода на встраиваемых безимпульсных моделях. Бюджетные настольные &mdash; в РФ от 2 400 руб.</p>
+        <p><strong>Совместимость:</strong> 220В, тот же стандарт. Проверь подключение (однофазное).</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="item" data-type="russia" style="animation-delay:0.4s; border-color: var(--red-border);">
+      <div class="item-top">
+        <div class="item-num" style="border-color:var(--red-border); color:var(--red);">08</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Холодильник встроенный</div>
+          <div class="item-subtitle">Однокамерный или двухкамерный</div>
+        </div>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Не везти!</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val" style="color:var(--fg-dim)">нет смысла</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">25-55 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val danger">отрицательная</div></div>
+      </div>
+      <div class="alert-box">
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4m0 4h.01"/></svg>Критический риск: фреон</h4>
+        <p>С осени 2024 Минприроды ввело лицензионные требования на ввоз техники с хладагентами. Лицензия стоит <strong>~200 000 руб.</strong>, оформляется только на юрлицо. Без лицензии &mdash; <strong>конфискация</strong> на таможне.</p>
+      </div>
+      <div class="item-body">
+        <p><strong>Где купить:</strong> DNS, М.Видео, Ozon. Korting KSI 8181 или Maunfeld &mdash; китайское производство, адекватные цены.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="item" data-type="china" style="animation-delay:0.45s">
+      <div class="item-top">
+        <div class="item-num">09</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Микроволновка встроенная</div>
+          <div class="item-subtitle">С грилем, 60x38 см</div>
+        </div>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">5-15 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">12-35 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-50%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Midea встраиваемая за 10-15 т.р. из Китая vs 20-30 т.р. в РФ. Вес ~15-18 кг, доставка $20-50.</p>
+        <p><strong>Бренд:</strong> Midea OEM &mdash; именно они делают Gorenje и часть Candy, которые продаются вдвое дороже.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="item" data-type="russia" style="animation-delay:0.5s">
+      <div class="item-top">
+        <div class="item-num">10</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Диванчик на балкон</div>
+          <div class="item-subtitle">Раскладной, 1 метр</div>
+        </div>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">4-15 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">8.5-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">30-50%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Мягкая мебель деформируется при транспортировке, большой объём. На Ozon/Wildberries те же китайские диваны по разумным ценам.</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="item" data-type="maybe" style="animation-delay:0.55s">
+      <div class="item-top">
+        <div class="item-num">11</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Стол на балкон</div>
+          <div class="item-subtitle">По ширине, 1 метр</div>
+        </div>
+        <span class="tag tag-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>Россия</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай</div><div class="price-cell-val china">3-6 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия</div><div class="price-cell-val russia">3.2-15 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val" style="color:var(--fg-dim)">20-40%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Разница минимальна. На OZON тот же китайский стол стоит 3 200-6 000 руб.</p>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="item" data-type="china" style="animation-delay:0.6s">
+      <div class="item-top">
+        <div class="item-num">12</div>
+        <div class="item-title-wrap">
+          <div class="item-title">Вытяжка на кухню</div>
+          <div class="item-subtitle">Встраиваемая, 60 см</div>
+        </div>
+        <span class="tag tag-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Везти (Fotile)</span>
+      </div>
+      <div class="prices">
+        <div class="price-cell"><div class="price-cell-label">Китай (Fotile)</div><div class="price-cell-val china">10-30 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Россия (аналог)</div><div class="price-cell-val russia">20-120 т.р.</div></div>
+        <div class="price-cell"><div class="price-cell-label">Экономия</div><div class="price-cell-val save">30-60%</div></div>
+      </div>
+      <div class="item-body">
+        <p>Fotile и Robam &mdash; топовые китайские бренды, лидеры рынка, в России почти неизвестны. Качество на уровне европейских брендов. Вес 8-15 кг.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMARY TABLE -->
+<section id="table" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M3 14h18M3 6h18M3 18h18"/></svg>
+    Сводная таблица
+  </div>
+  <table class="summary-table">
+    <thead>
+      <tr><th>Позиция</th><th>Решение</th><th>Китай</th><th>Россия</th><th>Вес</th></tr>
+    </thead>
+    <tbody>
+      <tr class="highlight"><td><strong>Кровать-трансформер</strong></td><td><span class="tag tag-green">Китай</span></td><td>12-20 т.р.</td><td>87-120 т.р.*</td><td>30-50 кг</td></tr>
+      <tr><td>Раковина в туалет</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>2-5 т.р.</td><td>&mdash;</td></tr>
+      <tr><td>Раковина на кухню</td><td><span class="tag tag-orange">Решай</span></td><td>3.5-7 т.р.</td><td>4-12 т.р.</td><td>8-12 кг</td></tr>
+      <tr class="highlight"><td><strong>Робот-пылесос</strong></td><td><span class="tag tag-green">Китай</span></td><td>28-70 т.р.</td><td>38-100 т.р.</td><td>8 кг</td></tr>
+      <tr class="highlight"><td><strong>Измельчитель</strong></td><td><span class="tag tag-green">Китай</span></td><td>4.2-13 т.р.</td><td>9-31 т.р.</td><td>4-6 кг</td></tr>
+      <tr><td>Духовка</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>17-35 т.р.</td><td>&mdash;</td></tr>
+      <tr><td>Плита 2-конфорочная</td><td><span class="tag tag-orange">Решай</span></td><td>5-9 т.р.</td><td>5-12 т.р.</td><td>5-8 кг</td></tr>
+      <tr><td>Холодильник</td><td><span class="tag tag-red">Россия!</span></td><td>&mdash;</td><td>25-55 т.р.</td><td>&mdash;</td></tr>
+      <tr class="highlight"><td><strong>Микроволновка</strong></td><td><span class="tag tag-green">Китай</span></td><td>10-15 т.р.</td><td>20-35 т.р.</td><td>15-18 кг</td></tr>
+      <tr><td>Диванчик балкон</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>8.5-20 т.р.</td><td>&mdash;</td></tr>
+      <tr><td>Стол балкон</td><td><span class="tag tag-red">Россия</span></td><td>&mdash;</td><td>3.2-8 т.р.</td><td>&mdash;</td></tr>
+      <tr class="highlight"><td><strong>Вытяжка Fotile</strong></td><td><span class="tag tag-green">Китай</span></td><td>10-25 т.р.</td><td>20-60 т.р.</td><td>10-15 кг</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem;color:var(--fg-dim)">* Цена готовой кровати. Из Китая везёшь только механизм, корпус делаешь в РФ.</p>
+</section>
+
+<!-- LOGISTICS -->
+<section id="logistics" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 10h22"/></svg>
+    Логистика
+  </div>
+
+  <div class="alert-box" style="border-color:var(--orange-border); background:var(--orange-bg);">
+    <h4 style="color:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="10"/></svg>Маленькая партия: 74 кг / 0.39 м3</h4>
+    <p>Это слишком мало для карго. Оптимально &mdash; заказать каждую позицию отдельно через <strong>AliExpress</strong> (доставка включена в цену).</p>
+  </div>
+
+  <table class="summary-table" style="margin-top:16px;">
+    <thead><tr><th>Вариант</th><th>Стоимость</th><th>Срок</th><th>Комментарий</th></tr></thead>
+    <tbody>
+      <tr class="highlight"><td><strong>AliExpress (отдельно)</strong></td><td>Включено в цену</td><td>15-45 дней</td><td><span class="tag tag-green">Оптимально</span></td></tr>
+      <tr><td>Посредник + карго</td><td>~25-35 т.р.</td><td>20-30 дней</td><td>Дорого для такого объёма</td></tr>
+      <tr><td>1688 + Master-Tao</td><td>Товар + 5-15% + карго</td><td>25-40 дней</td><td>Если цены на 1688 ниже Ali на 20%+</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PLAN -->
+<section id="plan" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path d="M9 14l2 2 4-4"/></svg>
+    Финальная рекомендация
+  </div>
+
+  <div class="split-panels">
+    <div class="panel china">
+      <h4>Купить из Китая (AliExpress)</h4>
+      <ol>
+        <li><strong>Механизм кровати</strong> &mdash; 12-20 т.р.</li>
+        <li><strong>Измельчитель Qcooker</strong> &mdash; 10-13 т.р.</li>
+        <li><strong>Микроволновка Midea</strong> &mdash; 10-15 т.р.</li>
+        <li><strong>Вытяжка Fotile</strong> &mdash; 15-25 т.р.</li>
+        <li><strong>Робот-пылесос</strong> &mdash; 28-70 т.р.</li>
+      </ol>
+      <div class="total" style="color:var(--green)">Итого: 75-143 т.р.</div>
+    </div>
+    <div class="panel russia">
+      <h4>Купить в России</h4>
+      <ol>
+        <li>Раковина в туалет &mdash; 2-5 т.р.</li>
+        <li>Раковина на кухню &mdash; 4-12 т.р.</li>
+        <li>Духовка Midea &mdash; 17-25 т.р.</li>
+        <li>Плита 2-конфорочная &mdash; 5-12 т.р.</li>
+        <li>Холодильник &mdash; 25-55 т.р.</li>
+        <li>Диванчик балкон &mdash; 8.5-20 т.р.</li>
+        <li>Стол балкон &mdash; 3.2-8 т.р.</li>
+      </ol>
+      <div class="total" style="color:var(--orange)">Итого: 64.7-137 т.р.</div>
+    </div>
+  </div>
+
+  <div class="budget-box">
+    <div class="budget-val">140-280 т.р.</div>
+    <div class="budget-label">Общий бюджет на все 12 позиций</div>
+    <div class="budget-compare">Если всё в России: 175-395 т.р. &middot; <strong style="color:var(--green)">Экономия: 35-115 т.р.</strong></div>
+  </div>
+
+  <div class="section-title" style="margin-top:32px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Пошаговый план
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text"><strong>Сейчас:</strong> Закажи на AliExpress робот-пылесос и измельчитель &mdash; лёгкие, доставка бесплатная, приедут через 2-4 недели</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text"><strong>Параллельно:</strong> Найди на 1688/AliExpress механизм кровати, микроволновку Midea и вытяжку Fotile. Сравни с посредником Master-Tao</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text"><strong>В России:</strong> Закажи холодильник, духовку и плиту в DNS/М.Видео. Раковины в Леруа Мерлен. Диван и стол на OZON</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text"><strong>Сборка:</strong> Механизм кровати передай мастеру по фасадам. Микроволновку и вытяжку установи при монтаже кухни</div>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+    Ключевые риски
+  </div>
+  <table class="risk-table">
+    <thead><tr><th>Риск</th><th>Что делать</th></tr></thead>
+    <tbody>
+      <tr><td>Напряжение / розетки</td><td>Китай = 220В/50Гц &mdash; совместимо. Проверь тип вилки (Type C / евровилка)</td></tr>
+      <tr><td>Гарантия</td><td>AliExpress &mdash; возврат 15 дней. Midea/Haier имеют сервис в РФ, но только на официально ввезённую технику</td></tr>
+      <tr><td>Сертификация</td><td>Для личного использования сертификат ЕАЭС не нужен. При подозрении на коммерцию &mdash; задержат</td></tr>
+      <tr><td>Приложения</td><td>Китайская версия робота может работать на китайских серверах. Проверяй Global/EU прошивку</td></tr>
+      <tr><td style="color:var(--red)">Фреон (холодильник)</td><td>НЕ ВВОЗИТЬ. С 2024 &mdash; лицензия Минпромторга ~200 т.р., только для юрлиц</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="section">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+    Источники (15)
+  </div>
+  <div class="sources-grid">
+    <a href="https://t-j.ru/guide/duty-free-import-of-goods/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Т-Ж &mdash; беспошлинный ввоз 2025</a>
+    <a href="https://t-j.ru/fifty-shades-of-parallel/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Т-Ж &mdash; параллельный импорт</a>
+    <a href="https://www.rbc.ru/technology_and_media/25/10/2024/671a697f9a79470bbdebe867" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>РБК &mdash; фреон и холодильники</a>
+    <a href="https://www.techinsider.ru/gadgets/1694425-ne-shirpotreb-5-kitaiskih-brendov-bytovoi-tehniki-s-proverennoi-reputaciei/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>TechInsider &mdash; китайские бренды</a>
+    <a href="https://www.ixbt.com/live/topcompile/kitayskie-versii-robotov-pylesosov-chto-kupit.html" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>iXBT &mdash; роботы-пылесосы</a>
+    <a href="https://1kargo.ru/delivery/czenyi/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>1Kargo &mdash; калькулятор доставки</a>
+    <a href="https://iz.ru/1366539/evgeniia-pertceva/sbytovaia-elektronika-prodavtcy-dadut-god-garantii-na-parallelnyi-import" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Известия &mdash; гарантия импорт</a>
+    <a href="https://stroyday.ru/tovary-s-aliexpress/top-10-izmelchitelej-pishhevyx-otxodov-s-aliexpress.html" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Стройдвор &mdash; измельчители Ali</a>
+    <a href="https://logichina.ru/blog/brendy-bytovoj-tehniki/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>LogiChina &mdash; бренды техники</a>
+    <a href="https://raketacn.ru/journal/skolko-stoit-dostavka-iz-kitaya" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Ракета &mdash; доставка из Китая</a>
+    <a href="https://china-west.ru/article/chto-nuzhno-znat-o-poshlinakh-i-nalogakh-pri-importe-iz-kitaya-v-2025-godu/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>China-West &mdash; пошлины 2025</a>
+    <a href="https://customs.gov.ru/fiz/uplata-tamozhennyx-platezhej/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ФТС &mdash; нормы ввоза</a>
+    <a href="https://prokitay.ru/mebel-transformer-iz-kitaya/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>ProKitay &mdash; трансформеры</a>
+    <a href="https://ru.dreametech.com/catalog/roboty-pylesosy" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Dreame &mdash; каталог</a>
+    <a href="https://www.alta.ru/external_news/114061/" class="source-link" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Alta.ru &mdash; ограничения ввоза</a>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  Deep Research v2 &middot; 20 марта 2026 &middot; 3 параллельных агента &middot; 15+ источников
+</footer>
+
+<script>
+// Filter functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.item').forEach(item => {
+      if (filter === 'all') { item.classList.remove('hidden'); }
+      else if (filter === 'russia') { item.classList.toggle('hidden', item.dataset.type !== 'russia'); }
+      else { item.classList.toggle('hidden', item.dataset.type !== filter); }
+    });
+  });
+});
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
